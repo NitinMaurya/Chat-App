@@ -8,6 +8,8 @@ socket.on('connect',function (){
 socket.on('message',function (message){
     console.log('New Message : ');
     console.log(message.text);
+
+    jQuery('.messages').append('<p>' + message.text + '</p>');
 });
 var $form = jQuery('#message-form');
 $form.on('submit',function(event){
