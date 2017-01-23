@@ -1,7 +1,8 @@
 /**
  * Created by nitin on 21/1/17.
  */
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
+var moment = require('moment');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -10,11 +11,14 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection',function (socket){
     console.log('User Connected via Socket.io!');
     socket.emit('message',{
-        text : 'Welcome to the Chat application!!'
+        text : '<center><b>Welcome to the Chat application!!</b></center>',
+        timestamp : moment().valueOf()
     });
     socket.on('message',function (message){
         console.log('Message Received : ' +  message.text);
+        message.timestamp = moment().valueOf();
         io.emit('message',message);
+
     });
 });
 http.listen(PORT,function (){
