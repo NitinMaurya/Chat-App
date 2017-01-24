@@ -11,6 +11,7 @@ app.use(express.static(__dirname + '/public'));
 io.on('connection',function (socket){
     console.log('User Connected via Socket.io!');
     socket.emit('message',{
+        name:   'Logged on at: ',
         text : '<center><b>Welcome to the Chat application!!</b></center>',
         timestamp : moment().valueOf()
     });
