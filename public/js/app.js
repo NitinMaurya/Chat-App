@@ -1,12 +1,12 @@
 //var io = require('socket.io');
 var name = getQueryVariable('name') || 'Anonymous';
-var room = getQueryVariable('room')  || 'World';
+var room = getQueryVariable('room');
 var socket = io();
 console.log(name + ' wants to join ' + room);
 socket.on('connect',function (){
     console.log('User is Connected!');
 });
-
+jQuery('.rooms').text('Welcome to ' + room + '!');
 socket.on('message',function (message){
     var timestamp = moment.utc(message.timestamp);
     console.log('New Message : ');

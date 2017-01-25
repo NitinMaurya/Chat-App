@@ -12,7 +12,7 @@ io.on('connection',function (socket){
     console.log('User Connected via Socket.io!');
     socket.emit('message',{
         name:   'Logged on at: ',
-        text : '<center><b>Welcome to the Chat application!!</b></center>',
+        text : '<center><b>Start Chatting!!</b></center>',
         timestamp : moment().valueOf()
     });
     socket.on('message',function (message){
