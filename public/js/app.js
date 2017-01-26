@@ -4,7 +4,12 @@ var room = getQueryVariable('room');
 var socket = io();
 console.log(name + ' wants to join ' + room);
 socket.on('connect',function (){
-    console.log('User is Connected!');
+    console.log( name +' is Connected!');
+    socket.emit('chatRoom',{
+        name: name,
+        room: room
+    });
+
 });
 jQuery('.rooms').text('Welcome to ' + room + '!');
 socket.on('message',function (message){
