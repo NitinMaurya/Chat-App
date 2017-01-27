@@ -23,8 +23,8 @@ function sendCurrentUsers(socket){
         }
     });
     socket.emit('message', {
-       name: 'System',
-        text : 'Current Users : ' + users.join(' , '),
+       name: 'System Message',
+        text : '<strong>Current Users : </strong>' + users.join(', '),
         timestamp : moment.valueOf()
     });
 }
@@ -32,15 +32,15 @@ io.on('connection',function (socket){
     console.log('User Connected via Socket.io!');
 
     socket.emit('message',{
-        name:   'Logged on at: ',
-        text : '<center><b>Start Chatting!!</b></center>',
+        name:   'Logged on at',
+        text : '<center><span style="color: darkred "><h4>' + 'Start Chatting!!' + '</h4></span></center>',
         timestamp : moment().valueOf()
     });
     socket.on('disconnect',function (){
        if(typeof clientInfo[socket.id] !== 'undefined'){
            socket.leave(clientInfo[socket.id].room);
           io.to(clientInfo[socket.id].room).emit('message',{
-              name : 'System',
+              name : 'System Message',
                text : clientInfo[socket.id].name + ' has left!',
                timestamp : moment.valueOf()
            });
@@ -51,8 +51,8 @@ io.on('connection',function (socket){
         clientInfo[socket.id] = req;
         socket.join(req.room);
         socket.broadcast.to(req.room).emit('message',{
-            name: 'System ',
-            text : req.name + ' has joined!',
+            name: 'System Message',
+            text : '<strong>' +req.name + '</strong>' + ' has joined!',
             timestamp : moment.valueOf()
         });
     });

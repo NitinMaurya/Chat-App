@@ -2,18 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Chat App!</title>
+    <title>The Chat App!-Join Chat</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body style="background-color: lightgrey ">
-<h1 style="color: orangered ; font-family : 'Noto Sans Mono CJK SC Bold' ; text-align: center ">Join Chat!</h1>
-<form action="/chat.html">
-    <label>Name: </label><input type="text" name="name" />
-    <br>
-    <br>
-    <label>Room: </label><input type="text" name="room" required/>
-    <br>
-    <br>
-    <input type="submit" value="Join!"/>
-</form>
+<!--<h1 style="color: orangered">Chat Konnect!</h1>-->
+<div class="vertical-center ">
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 well">
+                <p>
+                    <img src="Livechat.gif" alt="Chat icon" style="float:left;width:120px;height:90px;">
+                    <br>
+                <h1 style="color: orangered ; font-family : 'Noto Sans Mono CJK SC Bold' ">Join Chat!</h1>
+                <form action="/chat.html"> <!--style=" margin: 0 100%; width:250px;"-->
+                    <br>
+                        <div class="form-group">
+                            <label>Name: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                    </span>
+                                        <input type="text" name="name" class="form-control" placeholder="Your Name goes here.." aria-describedby="Display Name"/>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label>Room:</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i ><img src="roomIcon.png" style="width: 20px ; height: 20px"></i>
+                                    </span>
+                                    <input type="text" name="room" class="form-control" placeholder="Room you want to enter.." aria-describedby="Chat Room" required/>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Join!" class="btn btn-danger btn-block"/>
+                        </div>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

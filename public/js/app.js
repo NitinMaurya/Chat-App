@@ -16,10 +16,18 @@ socket.on('message',function (message){
     var timestamp = moment.utc(message.timestamp);
     console.log('New Message : ');
     console.log(message.text);
-    $message = jQuery('.messages');
-    $message.append('<p><strong>' + message.name + ': </strong>' + timestamp.local().format('MMM Do YYYY, h:mm a =>') +  '</p>');
-    $message.append(  message.text );
-    $message.append('<p><strong>---------------------------------------------------------</strong></p>');
+    $messages = jQuery('.messages');
+    $message = jQuery('<li class="list-group-item"></li>');
+    if(message.name === 'Logged on at' || message.name === 'System Message'){
+        $message.append('<p><strong>' + message.name + ' : </strong><span style="color: GrayText">' + timestamp.local().format('Do MMM YYYY, h:mm a ') + '</span></p>');
+        $message.append(message.text);
+        $messages.append($message);
+    }
+    else {
+        $message.append('<p><strong>' + message.name + ': </strong></p><p style="display: inline " ><span style="color: GrayText">' + timestamp.local().format('h:mm a ') + ': ' +'</span></p>');
+        $message.append(message.text);
+        $messages.append($message);
+    }
 });
 var $form = jQuery('#message-form');
 $form.on('submit',function(event){
