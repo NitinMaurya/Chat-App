@@ -29,6 +29,17 @@ socket.on('message',function (message){
         $messages.append($message);
     }
 });
+$emoji =$('#example');
+
+//$emoji.click(function () {
+
+    $emoji.jemoji({
+        menuBtn:    $('#show-menu'),
+        container:  $emoji.parent().parent()
+    });
+    //alert("Testing Emojis!!");
+//});
+
 var $form = jQuery('#message-form');
 $form.on('submit',function(event){
     event.preventDefault();

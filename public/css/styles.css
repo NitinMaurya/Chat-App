@@ -5,5 +5,10 @@
     align-items: center;
 }
 .glyphicon.glyphicon-home{
-    font-size: 30px;
+    font-size: 25px;
+    padding-right: 490px; ;
 }
+.well{
+    overflow-wrap: break-word;
+}
+
