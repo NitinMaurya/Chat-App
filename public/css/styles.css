@@ -5,11 +5,17 @@
     align-items: center;
 }
 .glyphicon.glyphicon-home{
-    font-size: 25px;
-    padding-right: 490px; ;
+    font-size: 20px;
+}
+.glyphicon.glyphicon-user{
+    font-size: 18px;
 }
 .well{
+    padding-bottom: 5px;
     overflow-wrap: break-word;
 }
-
+.messages{
+    max-height: 300px;
+    overflow-y: auto;
+}
 
