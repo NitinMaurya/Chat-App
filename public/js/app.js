@@ -20,7 +20,7 @@ socket.on('message',function (message){
     $message = jQuery('<li class="list-group-item"></li>');
     if(message.name === 'Logged on at' || message.name === 'System Message'){
         $message.append('<p><strong>' + message.name + ' : </strong><span style="color: GrayText">' + timestamp.local().format('Do MMM YYYY, h:mm a ') + '</span></p>');
-        $message.append(message.text);
+        $message.append('<p style="color: darkred"><h4><strong>' + message.text + '</strong></h4></p>');
         $messages.append($message);
     }
     else {
@@ -29,16 +29,7 @@ socket.on('message',function (message){
         $messages.append($message);
     }
 });
-/*$emoji =$('#example');
 
-//$emoji.click(function () {
-
-    $emoji.jemoji({
-        menuBtn:    $('#show-menu'),
-        container:  $emoji.parent().parent()
-    });
-    //alert("Testing Emojis!!");
-//});*/
 
 var $form = jQuery('#message-form');
 $form.on('submit',function(event){

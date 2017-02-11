@@ -6,7 +6,6 @@
     <title>Chat App!</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./js/jemoji-master/jemoji.css"/>
 </head>
 <body style="background-color:lightgrey">
 <h1 style="color: orangered ; font-family : 'Noto Sans Mono CJK SC Bold' ; text-align: center ">The Chat App!</h1>
@@ -28,15 +27,15 @@
                                 <i class="glyphicon glyphicon-comment"></i>
                             </span>
                              <input type="text" name="message" class="form-control" placeholder="Your Message goes here.." aria-describedby="Message" required/>
-                            <span  class="input-group-addon" style="padding: 0.1% 0.1%">
-                            <button id="example"  type="button"  class="btn btn-info btn-xs"  title="Smileys">
+                          <!--  <span  class="input-group-addon" style="padding: 0.1% 0.1%">
+                            <button id="clickSmiley"  type="button"  class="btn btn-info btn-xs"  title="Smileys">
                                 <i><img src="smiley.png" style="width: 20px ; height: 20px"></i>
+
                             </button>
-                            </span>
+                            </span>-->
                         </div>
-                        <div class ="form-group">
-                            <br>
-                            <center><input  type="submit" value="Send!" class="btn-danger"/></center>
+                        <div class ="form-group" style="padding-top: 20px">
+                                    <center><input  type="submit" value="Send!" class="btn btn-danger"/></center>
                         </div>
                     </div>
                 </form>
@@ -50,6 +49,15 @@
 <script src="./js/app.js"></script>
 <script src="./js/moment.js"></script>
 <script type="text/javascript" src="./js/jemoji-master/jemoji.js"></script>
+<script>
+
+   document.getElementById("clickSmiley").onclick= $('#clickSmiley').jemoji({
+    menuBtn:    $('#show-menu'),
+    container:  $('#clickSmiley').parent().parent().parent().parent().parent()
+},function(){
+       alert("Smiley");
+   });
+</script>
 
 </body>
 </html>

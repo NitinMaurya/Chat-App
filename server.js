@@ -33,7 +33,7 @@ io.on('connection',function (socket){
 
     socket.emit('message',{
         name:   'Logged on at',
-        text : '<center><span style="color: darkred "><h4>' + 'Start Chatting!!' + '</h4></span></center>',
+        text : 'Start Chatting!!',
         timestamp : moment().valueOf()
     });
     socket.on('disconnect',function (){
