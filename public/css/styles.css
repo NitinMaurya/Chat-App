@@ -8,9 +8,10 @@
     font-size: 20px;
 }
 .glyphicon.glyphicon-user{
-    font-size: 18px;
+    font-size: 15px;
 }
 .well{
+    padding-top: 5px;
     padding-bottom: 5px;
     overflow-wrap: break-word;
 }
@@ -18,4 +19,27 @@
     max-height: 300px;
     overflow-y: auto;
 }
-
+#homepage
+{
+    float: left;
+}
+#currentUsers{
+    float: right;
+}
+div >.cUsers{
+    padding: 0;
+    margin: 0;
+    border-color: lightcoral;
+}
+ul > .cUsers{
+    padding:0;
+    margin:0;
+    align-items: center;
+    max-height: 20px;
+}
+.dropdown{
+    position: inherit;
+}
+#welcome_Message{
+    margin-bottom: 0;
+}

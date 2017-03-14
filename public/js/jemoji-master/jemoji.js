@@ -4,7 +4,7 @@ if (typeof(jQuery) === 'undefined') {
 
 (function($) {
 
-  var jemoji = function ($el, options) {
+   var jemoji = function ($el, options) {
 
     var _this = this;
 

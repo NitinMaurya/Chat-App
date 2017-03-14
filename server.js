@@ -12,7 +12,7 @@ var clientInfo ={};
 
 function sendCurrentUsers(socket){
     var info = clientInfo[socket.id];
-    var users = [];
+    var users=[];
     if(typeof info=== 'undefined'){
         return;
     }
@@ -20,13 +20,21 @@ function sendCurrentUsers(socket){
         var userInfo = clientInfo[socketId];
         if(info.room === userInfo.room){
             users.push(userInfo.name);
+
         }
     });
-    socket.emit('message', {
-       name: 'System Message',
-        text : '<strong>Current Users : </strong>' + users.join(', '),
-        timestamp : moment.valueOf()
+    socket.emit('users',{
+        name: 'System',
+        flag : 1
     });
+
+   for(var i=0;i<users.length;i++){
+        socket.emit('users',{
+        name  : users[i],
+        flag : 0
+    });
+   }
+users.length=0;
 }
 io.on('connection',function (socket){
     console.log('User Connected via Socket.io!');
@@ -57,14 +65,12 @@ io.on('connection',function (socket){
         });
     });
     socket.on('message',function (message){
-        if(message.text === '@currentUsers'){
-         sendCurrentUsers(socket);
-        }
-        else {
             console.log('Message Received : ' + message.text);
             message.timestamp = moment().valueOf();
             io.to(clientInfo[socket.id].room).emit('message', message);
-        }
+    });
+    socket.on('users',function(){
+        sendCurrentUsers(socket);
     });
 });
 http.listen(PORT,function (){
