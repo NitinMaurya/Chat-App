@@ -44,10 +44,18 @@ socket.on('users',function(users){
         $('.ListOfUsers').remove();
     }
     else{
+
         $selCurusers = jQuery('.cUsers');
         $selusers = jQuery('<li  class="ListOfUsers list-group-item list-group-item-info"></li>');
-        $selusers.append('<p style="text-align: center">' + users.name + '</p>');
-        $selCurusers.append($selusers);
+        if(users.text === 'Admin'){
+            $selusers.append('<p style="font: medium sans-serif;color: #D9534F;text-align: center;padding-bottom: 3px;"><strong>'+ users.text +'</strong></p><p style="font-size: medium;margin-bottom: 0;"><strong>' + users.name + '</strong></p>');
+            $selCurusers.append($selusers);
+        }
+        else{
+            $selusers.append('<p style="font-size: medium"><strong>' + users.name + '</strong></p>');
+            $selCurusers.append($selusers);
+        }
+
     }
 
 });

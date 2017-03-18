@@ -27,8 +27,13 @@ function sendCurrentUsers(socket){
         name: 'System',
         flag : 1
     });
+    socket.emit('users',{
+        name : users[0],
+        flag : 0,
+        text : 'Admin'
+    });
 
-   for(var i=0;i<users.length;i++){
+   for(var i=1;i<users.length;i++){
         socket.emit('users',{
         name  : users[i],
         flag : 0

@@ -6,10 +6,11 @@
     <title>Chat App!</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="js/jemoji-master/jemoji.css">
 </head>
-<body background="bkg.jpg" style="background-color:lightgrey " >
-<h1 style="color: orangered ; font-family : 'Noto Sans Mono CJK SC Bold' ; text-align: center ">The Chat App!</h1>
+<body >
+<header class="topBar" >
+    <img class="Logo" src="images/logo.png"  alt="Logo">
+</header>
 
 <div class="container">
     <div class="row">
@@ -26,40 +27,35 @@
                 </a>
             </div>
             <div  class="dropdown" >
-                        <button id="currentUsers" class="btn btn-primary btn-group-xs dropdown-toggle" data-toggle="dropdown">
+                        <button id="currentUsers" class="btn btn-primary btn-group-xs dropdown-toggle" data-toggle="dropdown" title="Current Users">
                             <i class ="glyphicon glyphicon-user "> </i>
                             <span class="caret"></span></button>
-                            <ul   class="cUsers dropdown-menu dropdown-menu-right" role="menu">
-                                   <li ><a style="background-color: lightcoral; color: white"><b>Current Users :</b></a></li>
-
-                                <!--  <li id="divider" style="padding-bottom: 0.1%" role="separator" class="divider"></li>-->
-                                <!--  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>-->
+                            <ul   class="cUsers dropdown-menu dropdown-menu-right" role="menu" aria-haspopup="true" aria-expanded="true" >
+                                   <li ><a style="font-size:large ;background-color: lightcoral; color: white">Current Users</a></li>
                             </ul>
                     </div>
-       <!--     <script>
-
-            </script>-->
-
             <br>
             <br>
-            <div><ul id="messageWrapper" class="messages list-group" ><!--Messages End Up Here --></ul></div>
+            <div>
+                <ul id="messageWrapper" class="messages list-group" ><!--Messages End Up Here --></ul></div>
                 <form id="message-form">
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-comment"></i>
                             </span>
-                             <input type="text" name="message" class="form-control" placeholder="Your Message goes here.." autocomplete="off" aria-describedby="Message" required/>
+                            <p class="lead emoji-picker-container">
+                                <input type="text" name="message" class="form-control" data-emojiable="true" placeholder="Your Message goes here.." autocomplete="off" aria-describedby="Message" required/>
+
+                            </p>
 
 
-                            <!--<span  class="input-group-addon" style=" padding: 0;margin: 0">
-                            <button id="clickSmiley"  type="button"  class="btn btn-xs"  title="Smileys">
-                                <i><img src="smiley.png" style="width: 20px ; height: 20px"></i>
+                            <span  class="input-group-addon"  style=" padding: 0;margin: 0">
+                            <button id="clickSmiley"  type="button"  class="btn btn-xs"  title="Smileys" style="background: #EEEEEE">
+                                <i><img src="images/smiley.png" style="width: 29px;height: 28px;background: #EEEEEE"></i>
 
                             </button>
-                            </span>-->
+                            </span>
 
 
                         </div>
@@ -79,7 +75,7 @@
 <script src="./js/app.js"></script>
 <script src="./js/moment.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="./js/jemoji-master/jemoji.js"></script>
+
 
 </body>
 </html>
